@@ -7,9 +7,9 @@ import gg.archipelago.APClient.itemmanager.ItemManager;
 import gg.archipelago.APClient.locationmanager.LocationManager;
 import gg.archipelago.APClient.network.*;
 import gg.archipelago.APClient.parts.DataPackage;
-import gg.archipelago.APClient.parts.Game;
 import gg.archipelago.APClient.parts.NetworkItem;
 import gg.archipelago.APClient.parts.Version;
+import gg.archipelago.APClient.uat.UATServer;
 
 import java.io.*;
 import java.net.URI;
@@ -177,6 +177,8 @@ public abstract class APClient {
         locationManager.setAPWebSocket(apWebSocket);
         itemManager.setAPWebSocket(apWebSocket);
         apWebSocket.connect();
+
+        UATServer.start(game,"1",1,tags);
     }
 
     public void sendChat(String message) {
